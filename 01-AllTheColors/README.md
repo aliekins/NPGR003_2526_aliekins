@@ -121,6 +121,23 @@ to create and save a PNG image with a blue-red checkerboard.
 The code was recommended by a `ChatGPT` assistant,
 the whole conversation is archived [here](https://chatgpt.com/share/66f7db02-7af4-8000-a968-f817fb3b891c).
 
+# Python script to count unique colors
+
+Using the following Python script, you can open your image file and verify that it has the correct number of unique colors:
+
+```python
+from PIL import Image
+image = Image.open(PATH_TO_YOUR_IMAGE_FILE)
+colors = image.getcolors(maxcolors=2**24)
+colors_count = len(colors)
+if colors_count == 2**24:
+    print(f"Congratulations, your image contains exactly 2^24 = {2**24} unique colors")
+else:
+    print(f"Failed. Your image contains {colors_count} unique colors instead of 2^24 = {2**24}")
+```
+
+To run the script, you need to first install [the Pillow imaging library](https://github.com/python-pillow/Pillow), for example using `pip install pillow`.
+
 # Example
 
 This image is downsampled, so it doesn't contain enough colors to meet
