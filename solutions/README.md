@@ -5,4 +5,4 @@
 
 #### Tasks
 
-- [01-AllTheColors](./01-AllTheColors)
+1. [01-AllTheColors](./01-AllTheColors)
