@@ -5,24 +5,58 @@
 Sara Alić-Ekinović
 
 ## Command line arguments
+```
+-w, --width
+  not required, default = 4096
+  image width in pixels
 
--w, --width<br> - not required, default = 4096<br> - image width in pixels<br>
+-h, --height
+  not required, default = 4096
+  image height in pixels
 
--h, --height<br> - not required, default = 4096<br> - image height in pixels<br>
+-o, --output
+  not required, default = "xxx.png"
+  output file name
 
--o, --output<br> - not required, default = "xxx.png"<br> - output file name<br>
+-m, --mode
+  not required, default = "trivial"
+  mode: trivial | random | pattern
 
--m, --mode<br> - not required, default = "trivial"<br> - mode: trivial | random | pattern<br>
+--seed
+  not required
+  random seed (only for random mode)
 
---seed<br> - not required<br> - random seed (only for random mode)<br>
+--pattern-style
+  not required, default = "snake"
+  pattern style: snake | diagonal | spiral | blocks
 
+--pattern-block-size
+  not required, default = 64
+  block size for pattern=blocks
+
+--mandala-arms
+  not required, default = 8
+  number of symmetry arms for mandala mode
+
+--mandala-center-x
+  not required, default = -1
+  center X for mandala (default = middle)
+
+--mandala-center-y
+  not required, default = -1
+  center Y for mandala (default = middle)
+
+--ornament-depth
+  not required, default = 3
+  recursion depth for ornament mode
+
+--ornament-min
+  not required, default = 32
+  minimal region size for ornament mode
+```
 ## Input data
 
-Define the format of the input data if it is relevant to the task.
-
 ## Examples
-
-#### Inputs
 
 `dotnet run -- -w 4096 -h4096 -o trivial.png -m trivial`
 
