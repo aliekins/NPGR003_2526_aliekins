@@ -26,17 +26,19 @@ Alić-Ekinović Sara
 
 ## Examples
 
+Exceptions/Errors are handled similarly as in previous homework (in console there is something along the lines of `ERROR: ...`).
+
 #### Basic tests
 
-In ./tests/TestImageGenerator
+In ./tests/TestImageGenerator<br>
 `dotnet run`
 
-> out <br> > `Test images generated.`
+> out <br> `Test images generated.`
 
-In ./02-ImagePalette
+In ./02-ImagePalette<br>
 `dotnet run -- -i ../tests/TestImageGenerator/red.png -c 1`
 
-> out <br> > `255 0 0`
+> out <br> `255 0 0`
 
 `dotnet run -- -i ../tests/TestImageGenerator/red.png -c 1 -o red_palette.svg`
 
@@ -88,9 +90,8 @@ In ./02-ImagePalette
 
 #### Tests on more complex images
 
-_Note: Arbitrary number of colors in a palette is of course available, here are just the results I found interesting/pleasent to look at_
-
-_Note: For brievety, I will not be adding long outputs. Their format, however is the same as above._
+_Note: Arbitrary number of colors in a palette is of course available, here are just the results I found interesting/pleasent to look at_<br>
+_Note: For brievety, I will not be adding long outputs. Their format, however is the same as above._<br>
 
 `dotnet run -- -i ../tests/images/arthur-mazi-c4Eh-VZcWoc-unsplash.jpg -c 8 -o pool_palette.png -r pool_quantized.png`
 
@@ -114,10 +115,6 @@ _Note: For brievety, I will not be adding long outputs. Their format, however is
 
 `dotnet run -- -i ../tests/images/seiya-maeda-Ow3ycF_ZYI4-unsplash.jpg -c 12 -o snow_palette.png -r snow_quantized.png`
 
-## Algorithm
-
-Any details of the algorithms worth mentioning should go here.
-
 ## Extra work / Bonuses
 
-First two points are, of course, up to You to decide. For the last one
+First two points are, of course, up to You to decide. For the last one, (output colors are pleasantly sorted) I have tried my best :D
