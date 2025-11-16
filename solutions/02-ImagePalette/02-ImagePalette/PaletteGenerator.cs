@@ -60,9 +60,9 @@ namespace ImagePalette
                 finalPalette = SelectRepresentativeColors(rawPalette, pixelCounts, requestedColorCount);
             }
 
-            finalPalette.Sort(CompareByBrightness);
+            var ordered = OrderPalette(finalPalette);
+            return ordered;
 
-            return finalPalette;
         }
         private static Rgba32 ComputeWeightedAverage (List<Rgba32> colors, List<int> counts)
         {
@@ -183,11 +183,71 @@ namespace ImagePalette
             return (double)dr * dr + (double)dg * dg + (double)db * db;
         }
 
-        private static int CompareByBrightness (Rgba32 c1, Rgba32 c2)
+        private static List<Rgba32> OrderPalette (List<Rgba32> colors)
         {
-            int brightness1 = (int)c1.R + c1.G + c1.B;
-            int brightness2 = (int)c2.R + c2.G + c2.B;
-            return brightness1.CompareTo(brightness2);
+            int n = colors.Count;
+            if (n <= 2)
+            {
+                return new List<Rgba32>(colors);
+            }
+
+            var result = new List<Rgba32>(n);
+            var used = new bool[n];
+
+            int startIndex = 0;
+            double bestLuma = Luma(colors[0]);
+
+            for (int i = 1; i < n; i++)
+            {
+                double l = Luma(colors[i]);
+                if (l < bestLuma)
+                {
+                    bestLuma = l;
+                    startIndex = i;
+                }
+            }
+
+            int current = startIndex;
+            used[current] = true;
+            result.Add(colors[current]);
+
+            for (int k = 1; k < n; k++)
+            {
+                int bestIndex = -1;
+                double bestDist = double.MaxValue;
+
+                for (int i = 0; i < n; i++)
+                {
+                    if (used[i])
+                    {
+                        continue;
+                    }
+
+                    double d = ColorDistanceSquared(colors[current], colors[i]);
+                    if (d < bestDist)
+                    {
+                        bestDist = d;
+                        bestIndex = i;
+                    }
+                }
+
+                if (bestIndex == -1)
+                {
+                    break;
+                }
+
+                current = bestIndex;
+                used[current] = true;
+                result.Add(colors[current]);
+            }
+
+            return result;
         }
+
+        private static double Luma (Rgba32 c)
+        {
+            return 0.2126 * c.R + 0.7152 * c.G + 0.0722 * c.B;
+        }
+
     }
 }
