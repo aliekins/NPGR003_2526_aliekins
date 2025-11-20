@@ -8,3 +8,4 @@
 
 1. [01-AllTheColors](./01-AllTheColors)
 2. [02-ImagePalette](./02-ImagePalette/)
+3. [03-SFC](./03-SFC/)

@@ -40,7 +40,7 @@ class Program
 
           // Create a group element to contain the square ornament in the middle of the rectangle area..
           XmlElement group = svgDoc.CreateElement("g");
-          group.SetAttribute("transform", $"translate({(o.Width-size)/2},{(o.Height-size)/2})");
+          group.SetAttribute("transform", $"translate({(o.Width - size) / 2},{(o.Height - size) / 2})");
           svgRoot.AppendChild(group);
 
           // Create a square ornament - you have to put your own SFC curve rendering code here
