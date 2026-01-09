@@ -83,7 +83,7 @@ We won't accept mandala animations based only on color changes, a non-trivial
 shape metamorphosis/transition must be involved!
 
 # Your solution
-Please place your solution in a separate [solutions](solutions/README.md)
+Please place your solution in a separate [solutions](../solutions/README.md)
 directory in the repository. You'll find short instructions there.
 
 # Launch date
