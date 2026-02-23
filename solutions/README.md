@@ -12,3 +12,4 @@
 4. [04-Mandala](./04-Mandala/)
 5. [05-Animation](./05-Animation) 
 6. [06-ImageRecoloring](./06-ImageRecoloring)
+7. [08-Fireworks](./08-Fireworks)
